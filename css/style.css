@@ -1,0 +1,97 @@
+#slider {width: 100%;
+height: 100%;
+margin: 35px auto 0;
+position: fixed;
+bottom: 0;
+left: auto;
+right:auto;
+background: #FFF;}
+
+#slider:before, #slider:after {content: '';
+position: absolute;
+
+width: 100%;
+height: 100%;
+
+-webkit-transform: rotate(-4deg) skew(-10deg);
+-moz-transform: rotate(-4deg) skew(-10deg);
+-o-transform: rotate(-4deg) skew(-10deg);
+-ms-transform: rotate(-4deg) skew(-10deg);
+transform: rotate(-4deg) skew(-10deg);
+
+left: 10px;
+bottom: 13px;
+z-index: -1}
+
+#slider:after {left: auto;
+right: 10px;
+
+-webkit-transform: rotate(4deg) skew(10deg);
+-moz-transform: rotate(4deg) skew(10deg);
+-o-transform: rotate(4deg) skew(10deg);
+-ms-transform: rotate(4deg) skew(10deg);
+transform: rotate(4deg) skew(10deg)}
+
+#slider ul {width: 80%;
+padding: 0 0 0 0;
+position: absolute;
+z-index: 9;
+list-style: none;
+
+left: 50%;
+margin-left: -70px;
+bottom: 8px}
+
+#slider ul li:first-child {margin-left: 16px}
+
+#slider ul li {float: left;
+margin-right: 12px;
+margin-top: 14px}
+
+#slider ul li:last-child {margin-right: 0}
+
+#slider ul li a {width: 12px;
+height: 12px;
+display: block;
+outline: none;
+border: none;
+position: relative;
+z-index: 2;
+background: #AAA;
+box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.6), 0 1px 1px 0 white;
+border-radius: 50%}
+
+#slider ul li a:hover {background: #888}
+
+#slider img {
+	height: 100%;
+	position: absolute;
+	opacity: 0;
+
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease
+}
+
+#slider img:target {opacity: 1}
+
+#slider img#five {
+	opacity: 1;
+}
+
+#slider img:not(:target), #slider img:target ~ img#five {opacity: 0}
+
+#slider ul li a[href="#five"] {background: #777}
+
+#one:target ~ ul li a[href="#one"],
+#two:target ~ ul li a[href="#two"],
+#three:target ~ ul li a[href="#three"],
+#four:target ~ ul li a[href="#four"],
+#five:target ~ ul li a[href="#five"] {background: #777}
+
+#two:target ~ ul li a[href="#five"],
+#three:target ~ ul li a[href="#five"],
+#four:target ~ ul li a[href="#five"],
+#one:target ~ ul li a[href="#five"] {background: #AAA}
